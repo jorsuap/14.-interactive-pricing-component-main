@@ -21,7 +21,6 @@ checkbox.addEventListener('change', function () {
       year.innerHTML = "  /month";
       descuesnto = 0;
       output.innerHTML = "$ " + ((slider.value / 32) * 32).toFixed(2);
-      
    }
 });
 
@@ -42,5 +41,4 @@ slider.oninput = function () {
    }
    slider.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) " + slider.value / 32 * 100 +
          "%, hsl(224, 65%, 95%) " + slider.value / 32 * 100 + "%)";
-      console.log(rango);
 }
