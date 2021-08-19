@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+  <script src="js/sliderbar.js"></script>
   <title>Frontend Mentor | Interactive pricing component</title>
 
 </head>
@@ -29,7 +30,7 @@
         </div>
       </div>
       <div class="slidecontainer">
-        <input type="range" min="1" max="32" value="16" class="wb-PKR-slider" id="myRange">
+        <input type="range" min="1" max="32" value="16" class="slider" id="range" oninput="changeRange()">
       </div>
       <div class="selector">
         <span class="monthly">Monthly Billing</span>
@@ -56,5 +57,41 @@
   </main>
 </body>
 <script src="js/sliderbar.js"></script>
+<script>
+  let range = 16;
+  let nd = document.getElementById("range");
+  console.log(nd.value / 32 * 100);
+
+  var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+  var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+  var isBlink = (isChrome || isOpera) && !!window.CSS;
+  if (isBlink || navigator.userAgent.indexOf("Chrome") != -1) {
+    nd.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) " + nd.value / 32 * 100 +
+      "%, hsl(224, 65%, 95%) " + nd.value / 32 * 100 + "%)";
+  }
+  nd.style.borderRadius = "5px";
+  changeRange();
+
+
+  function changeRange() {
+    range = document.getElementById("range").value;
+    if (isBlink || navigator.userAgent.indexOf("Chrome") != -1) {
+      nd.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) " + nd.value / 32 * 100 +
+        "%, hsl(224, 65%, 95%) " + nd.value / 32 * 100 + "%)";
+    }
+    price1.innerHTML = (billing == 0) ? '$' + range + '.00' : '$' + (range * 12 * 0.75).toFixed(2);
+    pageviews.innerHTML = Math.ceil(range * 6.66) + 'K PAGEVIEWS';
+    if (range == 0) {
+      document.getElementsByTagName("button")[0].style.color = "grey";
+      document.getElementsByTagName("button")[0].type = '';
+      document.getElementsByTagName("button")[0].style.cursor = "default";
+
+    } else {
+      document.getElementsByTagName("button")[0].style.color = "hsl(224, 65%, 95%)";
+      document.getElementsByTagName("button")[0].type = 'button';
+      document.getElementsByTagName("button")[0].style.cursor = "pointer";
+    }
+  }
+</script>
 
 </html>
