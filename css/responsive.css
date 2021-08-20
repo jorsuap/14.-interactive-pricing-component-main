@@ -1,4 +1,7 @@
 @media(max-width:750px) {
+    body {
+        background: hsl(230, 100%, 99%) url(../images/bg-pattern.svg) no-repeat;
+    }
     .continer {
         width: 100%;
         height: 100%;
