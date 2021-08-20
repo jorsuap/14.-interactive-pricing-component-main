@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <title>Frontend Mentor | Interactive pricing component</title>
 
 </head>
@@ -28,13 +29,16 @@
       <div class="slidecontainer">
         <input type="range" min="0" max="32" value="16" class="slider" id="range" oninput="changeRange()">
       </div>
+      <div class="price--range show">
+        <h1 class="price-permonth show"></h1><span class="month">/ month</span>
+      </div>
       <div class="selector">
         <span class="monthly">Monthly Billing</span>
         <label class="switch">
           <input type="checkbox" class="toggle">
           <span class="deslizar round"></span>
         </label>
-        <span class="yearly">Yearly Billing <span class="descount">25%&nbsp;discount</span></span>
+        <span class="yearly">Yearly Billing <span class="descount">25%&nbsp;discount</span> <span class="descount hide">-25%</span></span>
       </div>
       <div class="beficios">
         <ul>
