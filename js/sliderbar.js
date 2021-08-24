@@ -1,3 +1,4 @@
+//Definicion de variables y acceso al DOM
 var slider = document.getElementById("range");
 var output = document.getElementsByClassName("price-permonth")[0];
 var output1 = document.getElementsByClassName("price-permonth")[1];
@@ -10,9 +11,13 @@ pages.innerHTML = slider.value * 6.25 + " K";
 var descuesnto = 0;
 var rango = 16;
 
+//En este fragmento de codigo se da solucion al problema de las sLIDER BAR para Chrome, ya que no tiene acceso 
+//a a editar o manipular el progreso de la barra...
 slider.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) " + slider.value / 32 * 100 +
    "%, hsl(224, 65%, 95%) " + slider.value / 32 * 100 + "%)";
 
+
+//Funcion para calcular los valores dependiendo de si activa el checkbox---tambien es una redundancia para la funcion principal
 checkbox.addEventListener('change', function () {
    if (this.checked) {
       descuesnto = 1;
@@ -27,6 +32,8 @@ checkbox.addEventListener('change', function () {
       output1.innerHTML = "$ " + ((slider.value / 32) * 32).toFixed(2);
    }
 });
+
+//Funcion que se activa al activar el Slider... y calcula los valores dependiendo del valor del Slider
 
 slider.oninput = function () {
 
@@ -47,6 +54,7 @@ slider.oninput = function () {
    } else {
       pages.innerHTML = parseInt(slider.value * 6.25) + " K";
    }
+   //Redundancia para modificar la barra de progreso del Slider
    slider.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) " + slider.value / 32 * 100 +
          "%, hsl(224, 65%, 95%) " + slider.value / 32 * 100 + "%)";
 }
