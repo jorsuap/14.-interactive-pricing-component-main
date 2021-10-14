@@ -213,7 +213,7 @@ input[type=range]::-moz-range-track {
     width: 19px;
     left: 5px;
     bottom: 5px;
-    background-color: white;
+    background-color: hsl(0, 0%, 100%);
     -webkit-transition: .4s;
     transition: .4s;
 }

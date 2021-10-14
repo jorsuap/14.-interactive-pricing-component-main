@@ -15,7 +15,7 @@ var rango = 16;
 //a a editar o manipular el progreso de la barra...
 slider.style.background = "linear-gradient(to right, hsl(174, 77%, 80%) " + slider.value / 32 * 100 +
    "%, hsl(224, 65%, 95%) " + slider.value / 32 * 100 + "%)";
-
+   // slider.style.background = "hsl(224, 65%, 95%)";
 
 //Funcion para calcular los valores dependiendo de si activa el checkbox---tambien es una redundancia para la funcion principal
 checkbox.addEventListener('change', function () {
